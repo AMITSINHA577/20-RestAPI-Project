@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.CustomerRelationshipManagement.entity.Customer;
@@ -75,6 +76,95 @@ public class CustomerDao {
 		session.close();
 
 		return "Customer delete Successfully";
+	}
+
+	// multipal customer adding
+
+	public String multipalCustomerAdd(List<Customer> customers) {
+
+		Session session = sf.openSession();
+		Transaction tr = session.beginTransaction();
+		for (Customer customerData : customers) {
+			session.save(customerData);
+		}
+		tr.commit();
+		session.close();
+
+		return "Multipal Customer added successfully";
+	}
+
+//	get customer data useing name
+
+	public List<Customer> getCustomerbyName(String firstName) {
+		Session session = sf.openSession();
+
+		Query<Customer> QueryDatacustomer = session.createQuery("from Customer c where c.firstName=:firstName",
+				Customer.class);
+		QueryDatacustomer.setParameter("firstName", firstName);
+		List<Customer> listdata = QueryDatacustomer.list();
+		return listdata;
+	}
+
+	// get data by age greater then>
+
+	public List<Customer> getCustomerByAge(int age) {
+		Session session = sf.openSession();
+		Query<Customer> Qdata = session.createQuery("from Customer c where c.age>:age", Customer.class);
+		Qdata.setParameter("age", age);
+		List<Customer> listAge = Qdata.list();
+		return listAge;
+	}
+
+	// get data by age less then>
+
+	public List<Customer> getCustomerByAgeLessthen(int age) {
+		Session session = sf.openSession();
+		Query<Customer> Qdata = session.createQuery("from Customer c where c.age<:age", Customer.class);
+		Qdata.setParameter("age", age);
+		List<Customer> listAge = Qdata.list();
+		return listAge;
+	}
+
+//		get all customer data by age 
+
+	public List<Customer> getAllCustomerByAge(int age) {
+		Session session = sf.openSession();
+		Query<Customer> QdataAge = session.createQuery("from Customer c where c.age=:age", Customer.class);
+		QdataAge.setParameter("age", age);
+		List<Customer> customersAgeData = QdataAge.list();
+		return customersAgeData;
+	}
+
+//	get customer data by lastName
+
+	public List<Customer> getCustomerDataByLastName(String lastName) {
+		Session session = sf.openSession();
+		Query<Customer> QLastName = session.createQuery("from Customer c where c.ladstName=:lastName", Customer.class);
+		QLastName.setParameter("lastName", lastName);
+		List<Customer> listDataLastName = QLastName.list();
+		return listDataLastName;
+	}
+
+//	get customer data by email 
+
+	public List<Customer> getCustomerDataByEmail(String email) {
+		Session session = sf.openSession();
+		Query<Customer> QEmail = session.createQuery("from Customer c where c.email=:email", Customer.class);
+		QEmail.setParameter("email", email);
+		List<Customer> listOfEmail = QEmail.list();
+		return listOfEmail;
+
+	}
+
+//	get customer data by phone number
+
+	public List<Customer> getDataByNumber(String Pnumber) {
+		Session session = sf.openSession();
+		Query<Customer> QPhone = session.createQuery("from Customer c where c.mobileNumber=:Pnumber", Customer.class);
+		QPhone.setParameter("Pnumber", Pnumber);
+		List<Customer> listPhone = QPhone.list();
+		return listPhone;
+
 	}
 
 }

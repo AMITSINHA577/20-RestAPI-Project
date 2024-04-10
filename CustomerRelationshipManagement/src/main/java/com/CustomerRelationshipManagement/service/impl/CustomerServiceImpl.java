@@ -49,4 +49,53 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.deleteCustomer(id);
 	}
 
+	@Override
+	public String multipalCustomerAdd(List<Customer> customers) {
+		// TODO Auto-generated method stub
+		return customerDao.multipalCustomerAdd(customers);
+	}
+
+	@Override
+	public List<Customer> getCustomerbyName(String firstName) {
+		// TODO Auto-generated method stubs
+
+		return customerDao.getCustomerbyName(firstName);
+	}
+
+	@Override
+	public List<Customer> getCustomerByAge(int age) {
+		// TODO Auto-generated method stub
+		return customerDao.getCustomerByAge(age);
+	}
+
+	@Override
+	public List<Customer> getCustomerByAgeLessthen(int age) {
+		// TODO Auto-generated method stub
+		return customerDao.getCustomerByAgeLessthen(age);
+	}
+
+	@Override
+	public List<Customer> getAllCustomerByAge(int age) {
+		// TODO Auto-generated method stub
+		return customerDao.getAllCustomerByAge(age);
+	}
+
+	@Override
+	public List<Customer> getCustomerDataByLastName(String last) {
+		// TODO Auto-generated method stub
+		return customerDao.getCustomerDataByLastName(last);
+	}
+
+	@Override
+	public List<Customer> getCustomerDataByEmail(String email) {
+		// TODO Auto-generated method stub
+		return customerDao.getCustomerDataByEmail(email);
+	}
+
+	@Override
+	public List<Customer> getDataByNumber(String Pnumber) {
+		// TODO Auto-generated method stub
+		return customerDao.getDataByNumber(Pnumber);
+	}
+
 }

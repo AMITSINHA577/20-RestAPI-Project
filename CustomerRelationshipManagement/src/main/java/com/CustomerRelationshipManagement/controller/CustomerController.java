@@ -55,4 +55,46 @@ public class CustomerController {
 	public String delteCustomerById(@PathVariable int id) {
 		return customerService.delteCustomerById(id);
 	}
+
+	@PostMapping
+	public String multipalCustomerAdd(@RequestBody List<Customer> customers) {
+		return customerService.multipalCustomerAdd(customers);
+
+	}
+
+	@GetMapping("/byName/{firstName}")
+	public List<Customer> getCustomerByFirstName(@PathVariable String firstName) {
+		return customerService.getCustomerbyName(firstName);
+	}
+
+	@GetMapping("/greaterAge/{age}")
+	public List<Customer> getCustomerByAges(@PathVariable int age) {
+		return customerService.getCustomerByAge(age);
+	}
+
+	@GetMapping("/LessAge/{age}")
+	public List<Customer> getCustomerByAgesLessthen(@PathVariable int age) {
+		return customerService.getCustomerByAgeLessthen(age);
+	}
+
+	@GetMapping("/getAllAge/{age}")
+	public List<Customer> getAllCustomerAge(@PathVariable int age){
+		return customerService.getAllCustomerByAge(age);
+	}
+
+	@GetMapping("/getLastName/{last}")
+	public List<Customer> getDataByLastName ( @PathVariable String last){
+		return customerService.getCustomerDataByLastName(last);
+	}
+	
+	@GetMapping("/byEmail/{email}")
+	public List<Customer> getDatabyEmail (@PathVariable String email){
+		return customerService.getCustomerDataByEmail(email);
+	}
+	
+	@GetMapping("/byPhone/{Pnumber}")
+	public List<Customer> getDataByPhone(@PathVariable String Pnumber){
+		return customerService.getDataByNumber(Pnumber);
+	}
+	
 }
