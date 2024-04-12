@@ -167,4 +167,84 @@ public class CustomerDao {
 
 	}
 
+//	update firastname of user
+
+	public String updateFirstName(int id, String firstName) {
+		Session session = sf.openSession();
+		Transaction tr = session.beginTransaction();
+		Customer customer = session.get(Customer.class, id);
+		customer.setFirstName(firstName);
+		tr.commit();
+		sf.close();
+
+		return "update successfully";
+
+	}
+//		update lastname of user
+
+	public String updateLastName(int id, String ladstName) {
+		Session session = sf.openSession();
+		Transaction tr = session.beginTransaction();
+		Customer customer = session.get(Customer.class, id);
+		customer.setLadstName(ladstName);
+		tr.commit();
+		sf.close();
+
+		return "last name update successfully";
+
+	}
+
+//	update email of user
+
+	public String updateEmail(int id, String email) {
+		Session session = sf.openSession();
+		Transaction tr = session.beginTransaction();
+		Customer customer = session.get(Customer.class, id);
+		customer.setEmail(email);
+		tr.commit();
+		sf.close();
+
+		return "email updated successfully";
+
+	}
+
+//	update mobile number
+
+	public String updateMobileNumber(int id, String Mnumber) {
+		Session session = sf.openSession();
+		Transaction tr = session.beginTransaction();
+		Customer customer = session.get(Customer.class, id);
+		customer.setMobileNumber(Mnumber);
+		tr.commit();
+		sf.close();
+		return "mobile number updatede successfully";
+	}
+
+//	update customer age
+
+	public String updateAge(int id, int age) {
+		Session session = sf.openSession();
+		Transaction tr = session.beginTransaction();
+		Customer customer = session.get(Customer.class, id);
+		customer.setAge(age);
+		tr.commit();
+		sf.close();
+		return "age updatede successfully";
+	}
+
+//	get customer first name
+
+	public List<String> getCustomerFirstName() {
+		Session session = sf.openSession();
+		return session.createQuery("select c.firstName from Customer c").list();
+	}
+
+//	get customer last name
+
+	public List<String> getCustomerLastName() {
+		Session session = sf.openSession();
+		return session.createQuery("select c.ladstName from Customer c").list();
+	}
+	
+	
 }

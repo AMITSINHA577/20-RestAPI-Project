@@ -31,4 +31,18 @@ public interface CustomerService {
 	List<Customer> getCustomerDataByEmail(String email);
 	
 	List<Customer> getDataByNumber(String Pnumber);
+	
+	String updateFirstName(int id, String firstName);
+	
+	String updateLastName(int id, String ladstName);
+	
+	String updateEmail(int id, String email);
+	
+	String updateMobileNumber(int id, String Mnumber);
+	
+	 String updateAge(int id, int age) ;
+
+	 List<String> getCustomerFirstName();
+	 
+	 List<String> getCustomerLastName();
 }

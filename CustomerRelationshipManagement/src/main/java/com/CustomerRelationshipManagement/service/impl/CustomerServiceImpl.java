@@ -98,4 +98,47 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.getDataByNumber(Pnumber);
 	}
 
+	@Override
+	public String updateFirstName(int id, String firstName) {
+		// TODO Auto-generated method stub
+		return customerDao.updateFirstName(id, firstName);
+	}
+
+	@Override
+	public String updateLastName(int id, String ladstName) {
+		// TODO Auto-generated method stub
+		return customerDao.updateLastName(id, ladstName);
+	}
+
+	@Override
+	public String updateEmail(int id, String email) {
+		// TODO Auto-generated method stub
+		return customerDao.updateEmail(id, email);
+	}
+
+	@Override
+	public String updateMobileNumber(int id, String Mnumber) {
+		// TODO Auto-generated method stub
+		return customerDao.updateMobileNumber(id, Mnumber);
+	}
+
+	@Override
+	public String updateAge(int id, int age) {
+		// TODO Auto-generated method stub
+		return customerDao.updateAge(id, age);
+	}
+
+	@Override
+	public List<String> getCustomerFirstName() {
+		// TODO Auto-generated method stub
+		return customerDao.getCustomerFirstName();
+	}
+
+	@Override
+	public List<String> getCustomerLastName() {
+		// TODO Auto-generated method stub
+		return customerDao.getCustomerLastName();
+	}
+
+
 }
